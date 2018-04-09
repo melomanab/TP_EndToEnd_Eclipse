@@ -59,17 +59,16 @@ public class ServletFormulaire extends HttpServlet {
 				int ID_FICTIF = 1;
 				Client monClient = new Client(ID_FICTIF, vNom, vPrenom, vAge, vIdConseiller);
 				
-				boolean resCreate = servC.createNewClient(monClient);
-				
+				boolean resCreate = servC.createNewClient(monClient);		
 				
 		// 3.--Choisir la page à retourner au client
 				// response.getWriter().append("/nClient cree: " + resCreate).append(request.getContextPath());
 				RequestDispatcher distpatcher;
 				
 				if (resCreate) {
-					distpatcher=request.getRequestDispatcher("bravo.html");
+					distpatcher=request.getRequestDispatcher("/bravo.html");
 				}else {
-					distpatcher=request.getRequestDispatcher("fail.html");
+					distpatcher=request.getRequestDispatcher("/fail.html");
 				}
 	
 				distpatcher.forward(request, response);
