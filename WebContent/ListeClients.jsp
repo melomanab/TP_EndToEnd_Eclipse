@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%-- Import necessaire pour introduire du code JSTL --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -42,9 +42,6 @@
 
 
 
-	<h1>Ceci est une page .jsp renvoyée par le serveur Tomcat qui
-		utilise JSTL</h1>
-
 	<%-- On ne peut pas importer une liste avec JSP
 <%
 ArrayList<Client> maListe= (ArrayList<Client>)session.getAttribute("list");
@@ -54,12 +51,43 @@ for (Client client : maListe) {
 %> 
 	--%>
 
-	<c:forEach items="${list}" var="client">
+<!-- <h1> Ma liste </h1> -->
+<%-- 	<c:forEach items="${list}" var="client"> --%>
 
-			<c:out value="${client.nom}"></c:out>
-			<c:out value="${client.prenom}"></c:out>
+<%-- 			<c:out value="${client.nom}"></c:out> --%>
+<%-- 			<c:out value="${client.prenom}"></c:out> --%>
 	
-	</c:forEach>
+<%-- 	</c:forEach> --%>
+
+<h1> Liste de clients </h1>
+			
+				<!------------ ### Table ### ---------------------->
+			<table class="table  table-striped">
+				<!------------ ### header table ### ---------------------->
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Prenom</th>
+						
+					</tr>
+					
+				<!------------ ### body table ### ---------------------->
+				</thead>
+				<tbody>
+
+					<c:forEach items="${list}" var="client" >
+
+						<tr>
+							<td><c:out value="${client.idClient}" /></td>
+							<td><c:out value="${client.nom}" /></td>
+							<td><c:out value="${client.prenom}" /></td>
+			
+						</tr>
+
+					</c:forEach>
+				</tbody>
+			</table>
 	
 		<!---------------- Footer ---------------------->
 		<footer class="pt-4 my-md-5 pt-md-5 border-top">
